@@ -80,7 +80,7 @@ def create_transcription_request(audio_file, speech_recognition_language="en-US"
     # TODO: stop continuous transcription on either session stopped or canceled events
 
     # TODO: remove this placeholder code and perform the actual transcription
-    all_results = ['This is a test.', 'Fill in with real transcription.']
+    #all_results = ['This is a test.', 'Fill in with real transcription.']
 
     return all_results
 
