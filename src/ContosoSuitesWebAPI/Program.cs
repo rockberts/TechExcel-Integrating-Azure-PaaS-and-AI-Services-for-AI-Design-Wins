@@ -42,7 +42,7 @@ builder.Services.AddSingleton<Kernel>((_) =>
 {
     IKernelBuilder kernelBuilder = Kernel.CreateBuilder();
     
-    //   Builder para ir directamente a azure open ai endpoint
+    /*   Builder para ir directamente a azure open ai endpoint
     kernelBuilder.AddAzureOpenAIChatCompletion(
         deploymentName: builder.Configuration["AzureOpenAI:DeploymentName"]!,
         endpoint: builder.Configuration["AzureOpenAI:Endpoint"]!,
@@ -57,9 +57,9 @@ builder.Services.AddSingleton<Kernel>((_) =>
         apiKey: builder.Configuration["AzureOpenAI:ApiKey"]!
     );
     
-   
+     */
     //builder para ir por api managament  
-    /*
+    //
     kernelBuilder.AddAzureOpenAIChatCompletion(
         deploymentName: builder.Configuration["AzureOpenAI:DeploymentName"]!,
         endpoint: builder.Configuration["ApiManagement:Endpoint"]!,
@@ -74,7 +74,9 @@ builder.Services.AddSingleton<Kernel>((_) =>
         apiKey: builder.Configuration["ApiManagement:ApiKey"]!
     );
 #pragma warning restore SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-    */
+    //
+
+    
     kernelBuilder.Plugins.AddFromType<DatabaseService>();
     kernelBuilder.Plugins.AddFromType<MaintenanceRequestPlugin>("MaintenanceCopilot");
     kernelBuilder.Services.AddSingleton<CosmosClient>((_) =>
