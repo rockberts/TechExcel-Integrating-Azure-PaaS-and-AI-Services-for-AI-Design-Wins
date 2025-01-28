@@ -130,6 +130,7 @@ def is_call_in_compliance(call_contents, include_recording_message, is_relevant_
     return response.choices[0].message.content
 
 
+
 @st.cache_data
 def generate_extractive_summary(call_contents):
     """Generate an extractive summary of a call transcript. Key assumptions:
