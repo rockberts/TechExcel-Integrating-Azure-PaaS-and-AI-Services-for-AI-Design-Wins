@@ -7,7 +7,7 @@ param managedIdentityName string
 
 var apimSku = 'Basicv2'
 var apimSkuCount = 1
-var apimPublisherName = 'Contoso Suites'
+var apimPublisherName = 'Arauco Rooms Demo'
 
 resource userAssignedManagedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' existing = {
   name: managedIdentityName

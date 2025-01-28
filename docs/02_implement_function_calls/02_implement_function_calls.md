@@ -15,7 +15,7 @@ Bringing our own data is one great way to enhance GPT models in Azure OpenAI, al
 
 After you complete this lab, you will be able to:
 
-* Implement hotel bookings history endpoints against Azure SQL Database using C#
+* Implement Salon bookings history endpoints against Azure SQL Database using C#
 * Create Semantic Kernel plugins to enable translation of natural language into SQL queries
 * Incorporate API results into the Streamlit application
 

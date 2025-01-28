@@ -13,23 +13,23 @@ BEGIN
 END
 GO
 
-IF OBJECT_ID('dbo.Hotel') IS NULL
+IF OBJECT_ID('dbo.Salon') IS NULL
 BEGIN
-	CREATE TABLE dbo.Hotel
+	CREATE TABLE dbo.Salon
 	(
-		HotelID INT NOT NULL CONSTRAINT [PK_Hotel] PRIMARY KEY CLUSTERED,
-		HotelName NVARCHAR(150) NOT NULL,
+		SalonID INT NOT NULL CONSTRAINT [PK_Salon] PRIMARY KEY CLUSTERED,
+		SalonName NVARCHAR(150) NOT NULL,
 		City NVARCHAR(75) NOT NULL,
 		Country NVARCHAR(75) NOT NULL
 	);
 END
 GO
 
-IF OBJECT_ID('dbo.HotelRoomType') IS NULL
+IF OBJECT_ID('dbo.SalonRoomType') IS NULL
 BEGIN
-	CREATE TABLE dbo.HotelRoomType
+	CREATE TABLE dbo.SalonRoomType
 	(
-		HotelRoomTypeID INT NOT NULL CONSTRAINT [PK_HotelRoomType] PRIMARY KEY CLUSTERED,
+		SalonRoomTypeID INT NOT NULL CONSTRAINT [PK_SalonRoomType] PRIMARY KEY CLUSTERED,
 		BedSize NVARCHAR(20) NOT NULL,
 		NumberOfRooms INT NOT NULL,
 		NumberOfBathrooms INT NOT NULL,
@@ -38,16 +38,16 @@ BEGIN
 END
 GO
 
-IF OBJECT_ID('dbo.HotelRoom') IS NULL
+IF OBJECT_ID('dbo.SalonRoom') IS NULL
 BEGIN
-	CREATE TABLE dbo.HotelRoom
+	CREATE TABLE dbo.SalonRoom
 	(
-		HotelRoomID INT NOT NULL CONSTRAINT [PK_HotelRoom] PRIMARY KEY CLUSTERED,
-		HotelID INT NOT NULL,
+		SalonRoomID INT NOT NULL CONSTRAINT [PK_SalonRoom] PRIMARY KEY CLUSTERED,
+		SalonID INT NOT NULL,
 		RoomNumber NVARCHAR(6) NOT NULL,
-		HotelRoomTypeID INT NOT NULL,
-		CONSTRAINT [FK_HotelRoom_Hotel] FOREIGN KEY(HotelID) REFERENCES dbo.Hotel(HotelID),
-		CONSTRAINT [FK_HotelRoom_HotelRoomType] FOREIGN KEY(HotelRoomTypeID) REFERENCES dbo.HotelRoomType(HotelRoomTypeID)
+		SalonRoomTypeID INT NOT NULL,
+		CONSTRAINT [FK_SalonRoom_Salon] FOREIGN KEY(SalonID) REFERENCES dbo.Salon(SalonID),
+		CONSTRAINT [FK_SalonRoom_SalonRoomType] FOREIGN KEY(SalonRoomTypeID) REFERENCES dbo.SalonRoomType(SalonRoomTypeID)
 	);
 END
 GO
@@ -58,26 +58,26 @@ BEGIN
 	(
 		BookingID INT NOT NULL CONSTRAINT [PK_Booking] PRIMARY KEY CLUSTERED,
 		CustomerID INT NOT NULL,
-		HotelID INT NOT NULL,
+		SalonID INT NOT NULL,
 		StayBeginDate DATE NOT NULL,
 		StayEndDate DATE NOT NULL,
 		NumberOfGuests INT NOT NULL,
 		CONSTRAINT [FK_Booking_Customer] FOREIGN KEY(CustomerID) REFERENCES dbo.Customer(CustomerID),
-		CONSTRAINT [FK_Booking_Hotel] FOREIGN KEY(HotelID) REFERENCES dbo.Hotel(HotelID),
+		CONSTRAINT [FK_Booking_Salon] FOREIGN KEY(SalonID) REFERENCES dbo.Salon(SalonID),
 		CONSTRAINT [CK_Booking_Dates] CHECK(StayBeginDate < StayEndDate)
 	);
 END
 GO
 
-IF OBJECT_ID('dbo.BookingHotelRoom') IS NULL
+IF OBJECT_ID('dbo.BookingSalonRoom') IS NULL
 BEGIN
-	CREATE TABLE dbo.BookingHotelRoom
+	CREATE TABLE dbo.BookingSalonRoom
 	(
-		BookingHotelRoomID INT NOT NULL CONSTRAINT [PK_BookingHotelRoom] PRIMARY KEY CLUSTERED,
+		BookingSalonRoomID INT NOT NULL CONSTRAINT [PK_BookingSalonRoom] PRIMARY KEY CLUSTERED,
 		BookingID INT NOT NULL,
-		HotelRoomID INT NOT NULL,
-		CONSTRAINT [FK_BookingHotelRoom_Booking] FOREIGN KEY(BookingID) REFERENCES dbo.Booking(BookingID),
-		CONSTRAINT [FK_BookingHotelRoom_HotelRoom] FOREIGN KEY(HotelRoomID) REFERENCES dbo.HotelRoom(HotelRoomID)
+		SalonRoomID INT NOT NULL,
+		CONSTRAINT [FK_BookingSalonRoom_Booking] FOREIGN KEY(BookingID) REFERENCES dbo.Booking(BookingID),
+		CONSTRAINT [FK_BookingSalonRoom_SalonRoom] FOREIGN KEY(SalonRoomID) REFERENCES dbo.SalonRoom(SalonRoomID)
 	);
 END
 GO
@@ -105,19 +105,19 @@ GO
 IF NOT EXISTS
 (
 	SELECT 1
-	FROM dbo.Hotel
+	FROM dbo.Salon
 )
 BEGIN
-	INSERT INTO dbo.Hotel
+	INSERT INTO dbo.Salon
 	(
-		HotelID,
-		HotelName,
+		SalonID,
+		SalonName,
 		City,
 		Country
 	)
 	VALUES
 	(1, 'Oceanview Inn', 'Noord', 'Aruba'),
-	(2, 'Metro Business Hotel', 'Ponce', 'Puerto Rico'),
+	(2, 'Metro Business Salon', 'Ponce', 'Puerto Rico'),
 	(3, 'Grand Regency', 'San Juan', 'Puerto Rico'),
 	(4, 'Beautiful Inn', 'Virgin Gorda', 'Virgin Islands');
 END
@@ -125,12 +125,12 @@ GO
 IF NOT EXISTS
 (
 	SELECT 1
-	FROM dbo.HotelRoomType
+	FROM dbo.SalonRoomType
 )
 BEGIN
-	INSERT INTO dbo.HotelRoomType
+	INSERT INTO dbo.SalonRoomType
 	(
-		HotelRoomTypeID,
+		SalonRoomTypeID,
 		BedSize,
 		NumberOfRooms,
 		NumberOfBathrooms,
@@ -147,15 +147,15 @@ GO
 IF NOT EXISTS
 (
 	SELECT 1
-	FROM dbo.HotelRoom
+	FROM dbo.SalonRoom
 )
 BEGIN
-	INSERT INTO dbo.HotelRoom
+	INSERT INTO dbo.SalonRoom
 	(
-		HotelRoomID,
-		HotelID,
+		SalonRoomID,
+		SalonID,
 		RoomNumber,
-		HotelRoomTypeID
+		SalonRoomTypeID
 	)
 	VALUES
 	(1, 1, '105', 1),
@@ -194,7 +194,7 @@ BEGIN
 	(
 		BookingID,
 		CustomerID,
-		HotelID,
+		SalonID,
 		StayBeginDate,
 		StayEndDate,
 		NumberOfGuests
@@ -220,14 +220,14 @@ GO
 IF NOT EXISTS
 (
 	SELECT 1
-	FROM dbo.BookingHotelRoom
+	FROM dbo.BookingSalonRoom
 )
 BEGIN
-	INSERT INTO dbo.BookingHotelRoom
+	INSERT INTO dbo.BookingSalonRoom
 	(
-		BookingHotelRoomID,
+		BookingSalonRoomID,
 		BookingID,
-		HotelRoomID
+		SalonRoomID
 	)
 	VALUES
 	(1, 1, 9),

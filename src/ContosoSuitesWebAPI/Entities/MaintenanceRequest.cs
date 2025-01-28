@@ -10,11 +10,11 @@ namespace ContosoSuitesWebAPI.Entities
         [JsonPropertyName("id")]
         public string id { get; set; } = Guid.NewGuid().ToString();
 
-        [JsonPropertyName("hotel_id")]
-        public int hotel_id { get; set; }
+        [JsonPropertyName("Salon_id")]
+        public int Salon_id { get; set; }
 
-        [JsonPropertyName("hotel")]
-        public string hotel { get; set; }
+        [JsonPropertyName("Salon")]
+        public string Salon { get; set; }
 
         [JsonPropertyName("source")]
         public string source { get; set; }

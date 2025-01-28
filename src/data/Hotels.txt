@@ -1,7 +1,7 @@
 [
   {
-    "hotel_id": 1,
-    "hotel name": "Oceanview Inn",
+    "Salon_id": 1,
+    "Salon name": "Oceanview Inn",
     "resort name": "Aruba Noord",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -15,8 +15,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 2,
-    "hotel name": "Metro Business Hotel",
+    "Salon_id": 2,
+    "Salon name": "Metro Business Salon",
     "resort name": "Puerto Rico Ponce",
     "free breakfast": false,
     "non-smoking rooms": true,
@@ -30,8 +30,8 @@
     "self-parking": false
   },
   {
-    "hotel_id": 3,
-    "hotel name": "Grand Regency",
+    "Salon_id": 3,
+    "Salon name": "Grand Regency",
     "resort name": "Puerto Rico San Juan",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -45,8 +45,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 4,
-    "hotel name": "Beautiful Inn",
+    "Salon_id": 4,
+    "Salon name": "Beautiful Inn",
     "resort name": "Virgin Islands Virgin Gorda",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -60,8 +60,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 5,
-    "hotel name": "Airport Gateway Hotel",
+    "Salon_id": 5,
+    "Salon name": "Airport Gateway Salon",
     "resort name": "Bahamas Nassau",
     "free breakfast": false,
     "non-smoking rooms": true,
@@ -75,8 +75,8 @@
     "self-parking": false
   },
   {
-    "hotel_id": 6,
-    "hotel name": "City Center Boutique Hotel",
+    "Salon_id": 6,
+    "Salon name": "City Center Boutique Salon",
     "resort name": "Bonaire Kralendijk",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -90,8 +90,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 7,
-    "hotel name": "The Palms Resort & Spa",
+    "Salon_id": 7,
+    "Salon name": "The Palms Resort & Spa",
     "resort name": "Aruba Oranjestad",
     "free breakfast": false,
     "non-smoking rooms": true,
@@ -105,8 +105,8 @@
     "self-parking": false
   },
   {
-    "hotel_id": 8,
-    "hotel name": "Heritage Grand Hotel",
+    "Salon_id": 8,
+    "Salon name": "Heritage Grand Salon",
     "resort name": "Bonaire Santa Barbara",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -120,8 +120,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 9,
-    "hotel name": "The Traveler's Rest",
+    "Salon_id": 9,
+    "Salon name": "The Traveler's Rest",
     "resort name": "Bahamas Freeport",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -135,8 +135,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 10,
-    "hotel name": "The Executive Suites",
+    "Salon_id": 10,
+    "Salon name": "The Executive Suites",
     "resort name": "Curacao Westpunt",
     "free breakfast": false,
     "non-smoking rooms": true,
@@ -150,8 +150,8 @@
     "self-parking": false
   },
   {
-    "hotel_id": 11,
-    "hotel name": "The Sunrise Retreat",
+    "Salon_id": 11,
+    "Salon name": "The Sunrise Retreat",
     "resort name": "Virgin Islands Road Town",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -165,8 +165,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 12,
-    "hotel name": "The Downtown Plaza Hotel",
+    "Salon_id": 12,
+    "Salon name": "The Downtown Plaza Salon",
     "resort name": "Bahamas Nassau",
     "free breakfast": false,
     "non-smoking rooms": true,
@@ -180,8 +180,8 @@
     "self-parking": false
   },
   {
-    "hotel_id": 13,
-    "hotel name": "Seaside Luxury Resort",
+    "Salon_id": 13,
+    "Salon name": "Seaside Luxury Resort",
     "resort name": "Curacao Willemstad",
     "free breakfast": false,
     "non-smoking rooms": true,
@@ -195,8 +195,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 14,
-    "hotel name": "Mountain View Inn",
+    "Salon_id": 14,
+    "Salon name": "Mountain View Inn",
     "resort name": "Puerto Rico Ponce",
     "free breakfast": true,
     "non-smoking rooms": true,
@@ -210,8 +210,8 @@
     "self-parking": true
   },
   {
-    "hotel_id": 15,
-    "hotel name": "The Urban Hotel",
+    "Salon_id": 15,
+    "Salon name": "The Urban Salon",
     "resort name": "Curacao Willemstad",
     "free breakfast": true,
     "non-smoking rooms": true,

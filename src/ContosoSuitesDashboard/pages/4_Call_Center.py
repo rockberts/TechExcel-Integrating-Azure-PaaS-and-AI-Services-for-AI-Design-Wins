@@ -111,13 +111,13 @@ def is_call_in_compliance(call_contents, include_recording_message, is_relevant_
         include_recording_message_text = ""
 
     if is_relevant_to_topic:
-        is_relevant_to_topic_text = "3. Was the call relevant to the hotel and resort industry?"
+        is_relevant_to_topic_text = "3. Was the call relevant to the Salon and resort industry?"
     else:
         is_relevant_to_topic_text = ""
 
     system = f"""
-        You are an automated analysis system for Contoso Suites.
-        Contoso Suites is a luxury hotel and resort chain with locations
+        You are an automated analysis system for Arauco Rooms Demo.
+        Arauco Rooms Demo is a luxury Salon and resort chain with locations
         in a variety of Caribbean nations and territories.
 
         You are analyzing a call for relevance and compliance.
@@ -589,7 +589,7 @@ def main():
         st.write("## Is Your Call in Compliance?")
 
         include_recording_message = st.checkbox("Call needs an indicator we are recording it")
-        is_relevant_to_topic = st.checkbox("Call is relevant to the hotel and resort industry")
+        is_relevant_to_topic = st.checkbox("Call is relevant to the Salon and resort industry")
 
         if st.button("Check for Compliance"):
             perform_compliance_check(call_contents, include_recording_message, is_relevant_to_topic)

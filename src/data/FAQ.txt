@@ -48,7 +48,7 @@ A12: Yes, you are welcome to bring your own vendors. However, we also offer a li
 Access to EV Charging
 
 Q13: Do you offer EV charging stations at the resort?
-A13: Yes, many of our resort hotels offer EV charging stations for guests. Please check the specific amenities listed for your chosen resort.
+A13: Yes, many of our resort Salons offer EV charging stations for guests. Please check the specific amenities listed for your chosen resort.
 
 Q14: Is there a fee to use the EV charging stations?
 A14: The usage fee for EV charging stations varies by location. Some resorts offer complimentary charging for guests, while others may charge a nominal fee. Please contact the resort directly for more details.
@@ -60,7 +60,7 @@ Q16: Do I need to reserve an EV charging spot in advance?
 A16: Reservations for EV charging spots are not usually required, but we recommend informing the front desk upon arrival to ensure availability.
 
 Q17: What type of EV chargers do you have (e.g., Level 2, DC fast chargers)?
-A17: Most of our resort hotels are equipped with Level 2 chargers. Some locations may also offer DC fast chargers. Please contact the specific resort for details on the available charging options.
+A17: Most of our resort Salons are equipped with Level 2 chargers. Some locations may also offer DC fast chargers. Please contact the specific resort for details on the available charging options.
 
 General Questions
 
@@ -68,7 +68,7 @@ Q18: What is the check-in and check-out time at the resort?
 A18: Standard check-in time is at 3:00 PM, and check-out time is at 11:00 AM. Early check-in and late check-out requests are subject to availability and may incur additional charges.
 
 Q19: Do you offer airport shuttle service?
-A19: Yes, many of our resort hotels offer airport shuttle service. Please check the specific amenities listed for your chosen resort or contact the front desk for more information.
+A19: Yes, many of our resort Salons offer airport shuttle service. Please check the specific amenities listed for your chosen resort or contact the front desk for more information.
 
 Q20: Is Wi-Fi available at the resort?
 A20: Yes, complimentary Wi-Fi is available throughout the resort, including guest rooms, meeting rooms, and common areas.
@@ -137,7 +137,7 @@ Q37: Is parking available at the resort?
 A37: Yes, we offer both covered and self-parking options for our guests. Please check with the front desk for parking fees and availability.
 
 Q38: Do you offer valet parking services?
-A38: Yes, valet parking services are available at most of our resort hotels. Please inquire at the front desk for more information and rates.
+A38: Yes, valet parking services are available at most of our resort Salons. Please inquire at the front desk for more information and rates.
 
 Q39: How do I arrange for airport transportation?
 A39: Airport transportation can be arranged through our concierge or front desk. Please provide your flight details in advance to ensure timely service.
@@ -183,4 +183,4 @@ A51: Yes, our concierge team is available to assist with a variety of services, 
 Q52: How can I provide feedback about my stay at the resort?
 A52: We value your feedback and encourage you to share your experience with us. You can provide feedback through our website, by filling out a guest satisfaction survey, or by speaking with a member of our management team during your stay.
 
-We hope these FAQs help answer your questions and make your stay at our resort hotels enjoyable and hassle-free. If you have any further questions, please do not hesitate to contact us.
+We hope these FAQs help answer your questions and make your stay at our resort Salons enjoyable and hassle-free. If you have any further questions, please do not hesitate to contact us.

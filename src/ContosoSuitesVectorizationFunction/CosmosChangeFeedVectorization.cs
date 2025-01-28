@@ -62,8 +62,8 @@ namespace ContosoSuites.Functions
             {
                 try
                 {
-                    // Combine the hotel and details fields into a single string for embedding.
-                    var request_text = $"Hotel: {request.Hotel}\n Request Details: {request.Details}";
+                    // Combine the Salon and details fields into a single string for embedding.
+                    var request_text = $"Salon: {request.Salon}\n Request Details: {request.Details}";
                     // Generate a vector for the maintenance request.
                     var embedding = _embeddingClient.GenerateEmbedding(request_text);
                     var requestVector = embedding.Value.Vector;
@@ -95,11 +95,11 @@ namespace ContosoSuites.Functions
         [JsonPropertyName("type")]
         public string? Type { get; set; }
         
-        [JsonPropertyName("hotel_id")]
-        public int HotelId {get;set;}
+        [JsonPropertyName("Salon_id")]
+        public int SalonId {get;set;}
         
-        [JsonPropertyName("hotel")]
-        public string Hotel { get; set; }
+        [JsonPropertyName("Salon")]
+        public string Salon { get; set; }
 
         [JsonPropertyName("source")]
         public string Source { get; set; }

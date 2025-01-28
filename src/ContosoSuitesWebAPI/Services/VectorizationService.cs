@@ -1,17 +1,24 @@
-﻿using Azure.AI.OpenAI;
+﻿//using Azure.AI.OpenAI;
 using ContosoSuitesWebAPI.Entities;
 using Microsoft.Azure.Cosmos;
 using System.Globalization;
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.Embeddings;
 
 namespace ContosoSuitesWebAPI.Services
 {
     /// <summary>
     /// The vectorization service for generating embeddings and executing vector searches.
     /// </summary>
-    public class VectorizationService(AzureOpenAIClient openAIClient, CosmosClient cosmosClient, IConfiguration configuration) : IVectorizationService
+    //public class VectorizationService(AzureOpenAIClient openAIClient, CosmosClient cosmosClient, IConfiguration configuration) : IVectorizationService
+
+
+    public class VectorizationService(Kernel kernel, CosmosClient cosmosClient, IConfiguration configuration) : IVectorizationService
     {
-        private readonly AzureOpenAIClient _client = openAIClient;
+        //private readonly AzureOpenAIClient _client = openAIClient;
         private readonly CosmosClient _cosmosClient = cosmosClient;
+        private readonly Kernel _kernel = kernel;
+
         private readonly string _embeddingDeploymentName = configuration.GetValue<string>("AzureOpenAI:EmbeddingDeploymentName") ?? "text-embedding-ada-002";
 
         /// <summary>
@@ -20,14 +27,20 @@ namespace ContosoSuitesWebAPI.Services
         /// </summary>
         public async Task<float[]> GetEmbeddings(string text)
         {
-            var embeddingClient = _client.GetEmbeddingClient(_embeddingDeploymentName);
+            //var embeddingClient = _kernel.GetEmbeddingClient(_embeddingDeploymentName);
 
             try
             {
                 // Generate a vector for the provided text.
-                var embeddings = await embeddingClient.GenerateEmbeddingAsync(text);
+                // Generate a vector for the provided text.
+#pragma warning disable SKEXP0001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+                var embeddings = await _kernel.GetRequiredService<ITextEmbeddingGenerationService>().GenerateEmbeddingAsync(text);
+#pragma warning restore SKEXP0001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
-                var vector = embeddings.Value.Vector.ToArray();
+                //var embeddings = await embeddingClient.GenerateEmbeddingAsync(text);
+
+                //var vector = embeddings.Value.Vector.ToArray();
+                var vector = embeddings.ToArray();
 
                 // Return the vector embeddings.
                 return vector;
@@ -50,7 +63,7 @@ namespace ContosoSuitesWebAPI.Services
 
             var vectorString = string.Join(", ", queryVector.Select(v => v.ToString(CultureInfo.InvariantCulture)).ToArray());
 
-            var query = $"SELECT c.hotel_id AS HotelId, c.hotel AS Hotel, c.details AS Details, c.source AS Source, VectorDistance(c.request_vector, [{vectorString}]) AS SimilarityScore FROM c";
+            var query = $"SELECT c.Salon_id AS SalonId, c.Salon AS Salon, c.details AS Details, c.source AS Source, VectorDistance(c.request_vector, [{vectorString}]) AS SimilarityScore FROM c";
             query += $" WHERE VectorDistance(c.request_vector, [{vectorString}]) > {minimum_similarity_score.ToString(CultureInfo.InvariantCulture)}";
             query += $" ORDER BY VectorDistance(c.request_vector, [{vectorString}])";
 

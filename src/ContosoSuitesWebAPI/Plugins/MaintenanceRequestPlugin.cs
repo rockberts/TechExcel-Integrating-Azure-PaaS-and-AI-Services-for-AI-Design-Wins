@@ -14,23 +14,23 @@ namespace ContosoSuitesWebAPI.Plugins
 
         // Exercise 5 Task 2 TODO #6: Add KernelFunction and Description descriptors to the function.
         // The function should be named "create_maintenance_request" and it should have a description
-        // the accurately describes the purpose of the function, such as "Creates a new maintenance request for a hotel."
+        // the accurately describes the purpose of the function, such as "Creates a new maintenance request for a Salon."
 
         // Exercise 5 Task 2 TODO #7: Add Kernel as the first parameter to the function.
         /// <summary>
-        /// Creates a new maintenance request for a hotel.
+        /// Creates a new maintenance request for a Salon.
         /// </summary>
-        public async Task<MaintenanceRequest> CreateMaintenanceRequest(int HotelId, string Hotel, string Details, int? RoomNumber, string? location)
+        public async Task<MaintenanceRequest> CreateMaintenanceRequest(int SalonId, string Salon, string Details, int? RoomNumber, string? location)
         {
             try
             {
-                Console.WriteLine($"Creating a new maintenance request for the {Hotel}.");
+                Console.WriteLine($"Creating a new maintenance request for the {Salon}.");
 
                 var request = new MaintenanceRequest
                 {
                     id = Guid.NewGuid().ToString(),
-                    hotel_id = HotelId,
-                    hotel = Hotel,
+                    Salon_id = SalonId,
+                    Salon = Salon,
                     details = Details,
                     room_number = RoomNumber,
                     source = "customer",
@@ -46,18 +46,18 @@ namespace ContosoSuitesWebAPI.Plugins
 
         // Exercise 5 Task 2 TODO #8: Add KernelFunction and Description descriptors to the function.
         // The function should be named "save_maintenance_request" and it should have a description
-        // the accurately describes the purpose of the function, such as "Saves a maintenance request to the database for a hotel."
+        // the accurately describes the purpose of the function, such as "Saves a maintenance request to the database for a Salon."
 
         // Exercise 5 Task 2 TODO #9: Add Kernel as the first parameter to the function.
         /// <summary>
-        /// Saves a maintenance request to the database for a hotel.
+        /// Saves a maintenance request to the database for a Salon.
         /// </summary>
         public async Task SaveMaintenanceRequest(MaintenanceRequest maintenanceRequest)
         {
             var db = _cosmosClient.GetDatabase("ContosoSuites");
             var container = db.GetContainer("MaintenanceRequests");
 
-            var response = await container.CreateItemAsync(maintenanceRequest, new PartitionKey(maintenanceRequest.hotel_id));
+            var response = await container.CreateItemAsync(maintenanceRequest, new PartitionKey(maintenanceRequest.Salon_id));
         }
     }
 }

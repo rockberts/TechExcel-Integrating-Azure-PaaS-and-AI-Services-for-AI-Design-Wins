@@ -4,17 +4,17 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 @st.cache_data
-def get_hotels():
-    """Return a list of hotels from the API."""
+def get_Salons():
+    """Return a list of Salons from the API."""
     api_endpoint = st.secrets["api"]["endpoint"]
-    response = requests.get(f"{api_endpoint}/Hotels", timeout=10)
+    response = requests.get(f"{api_endpoint}/Salons", timeout=10)
     return response
 
 @st.cache_data
-def get_hotel_bookings(hotel_id):
-    """Return a list of bookings for the specified hotel."""
+def get_Salon_bookings(Salon_id):
+    """Return a list of bookings for the specified Salon."""
     api_endpoint = st.secrets["api"]["endpoint"]
-    response = requests.get(f"{api_endpoint}/Hotels/{hotel_id}/Bookings", timeout=10)
+    response = requests.get(f"{api_endpoint}/Salons/{Salon_id}/Bookings", timeout=10)
     return response
 
 @st.cache_data
@@ -35,21 +35,21 @@ def main():
     the Semantic Kernel library to generate SQL statements from natural language
     queries and display them in a Streamlit app.
 
-    ## Select a Hotel
+    ## Select a Salon
     """
     )
 
-    # Display the list of hotels as a drop-down list
-    hotels_json = get_hotels().json()
-    # Reshape hotels to an object with hotelID and hotelName
-    hotels = [{"id": hotel["hotelID"], "name": hotel["hotelName"]} for hotel in hotels_json]
+    # Display the list of Salons as a drop-down list
+    Salons_json = get_Salons().json()
+    # Reshape Salons to an object with SalonID and SalonName
+    Salons = [{"id": Salon["SalonID"], "name": Salon["SalonName"]} for Salon in Salons_json]
     
-    selected_hotel = st.selectbox("Hotel:", hotels, format_func=lambda x: x["name"])
+    selected_Salon = st.selectbox("Salon:", Salons, format_func=lambda x: x["name"])
 
-    # Display the list of bookings for the selected hotel as a table
-    if selected_hotel:
-        hotel_id = selected_hotel["id"]
-        bookings = get_hotel_bookings(hotel_id).json()
+    # Display the list of bookings for the selected Salon as a table
+    if selected_Salon:
+        Salon_id = selected_Salon["id"]
+        bookings = get_Salon_bookings(Salon_id).json()
         st.write("### Bookings")
         st.table(bookings)
 
@@ -57,7 +57,7 @@ def main():
         """
         ## Ask a Bookings Question
 
-        Enter a question about hotel bookings in the text box below.
+        Enter a question about Salon bookings in the text box below.
         Then select the "Submit" button to call the Chat endpoint.
         """
     )

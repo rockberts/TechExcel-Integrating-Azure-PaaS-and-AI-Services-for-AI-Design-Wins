@@ -1,8 +1,8 @@
 namespace ContosoSuitesWebAPI.Entities;
-public class Hotel
+public class Salon
 {
-    public required int HotelID { get; set; }
-    public required string HotelName { get; set; }
+    public required int SalonID { get; set; }
+    public required string SalonName { get; set; }
     public required string City { get; set; }
     public required string Country { get; set; }
 }
