@@ -1,7 +1,7 @@
 import streamlit as st
 from azure.cosmos import CosmosClient
 import openai
-
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 st.set_page_config(layout="wide")
 
 def make_azure_openai_embedding_request(text):
@@ -11,6 +11,9 @@ def make_azure_openai_embedding_request(text):
     token_provider = get_bearer_token_provider(
         DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
     )
+    #credential = DefaultAzureCredential()
+    #token = credential.get_token("https://cognitiveservices.azure.com/.default")
+
     aoai_endpoint = st.secrets["aoai"]["endpoint"]
     aoai_embedding_deployment_name = st.secrets["aoai"]["embedding_deployment_name"]
 
@@ -37,12 +40,13 @@ def make_cosmos_db_vector_search_request(query_embedding, max_results=5,minimum_
     cosmos_endpoint = st.secrets["cosmos"]["endpoint"]
     cosmos_database_name = st.secrets["cosmos"]["database_name"]
     cosmos_container_name = "CallTranscripts"
+    cosmos_key = st.secrets["cosmos"]["key"]
 
     # Create a CosmosClient
     client = CosmosClient(url=cosmos_endpoint, credential=cosmos_key)
     # Load the Cosmos database and container
     database = client.get_database_client(cosmos_database_name)
-    container = database.get_container_client(cosmos_credentials)
+    container = database.get_container_client(cosmos_container_name)
 
     results = container.query_items(
         query=f"""
